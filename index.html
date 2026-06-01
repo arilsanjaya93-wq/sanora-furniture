@@ -1,424 +1,305 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>SANORA Furniture</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
 
 *{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:'Poppins',sans-serif;
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
 }
 
 html{
-scroll-behavior:smooth;
+    scroll-behavior:smooth;
 }
 
 body{
-background:#0f0f0f;
-color:#ffffff;
+    font-family:Arial,sans-serif;
+
+    background:
+        linear-gradient(
+            rgba(255,255,255,0.92),
+            rgba(255,255,255,0.92)
+        ),
+        url("images/8.png");
+
+    background-size:cover;
+    background-position:center;
+    background-attachment:fixed;
+
+    color:#333;
 }
 
-header{
-position:fixed;
-top:0;
-width:100%;
-padding:20px 8%;
-display:flex;
-justify-content:space-between;
-align-items:center;
-background:rgba(0,0,0,.7);
-backdrop-filter:blur(12px);
-z-index:1000;
-}
-
-.logo{
-font-size:28px;
-font-weight:700;
-letter-spacing:2px;
-color:#c8a165;
-}
-
-nav a{
-color:white;
-text-decoration:none;
-margin-left:25px;
-transition:.3s;
-}
-
-nav a:hover{
-color:#c8a165;
-}
+/* HERO */
 
 .hero{
-height:100vh;
-background:
-linear-gradient(rgba(0,0,0,.65),
-rgba(0,0,0,.65)),
-url('images/7.png');
-background-size:cover;
-background-position:center;
-display:flex;
-justify-content:center;
-align-items:center;
-text-align:center;
-padding:20px;
+    min-height:100vh;
+
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+
+    text-align:center;
+
+    background:
+        linear-gradient(
+            rgba(0,0,0,0.45),
+            rgba(0,0,0,0.45)
+        ),
+        url("images/7.png");
+
+    background-size:cover;
+    background-position:center;
+
+    color:white;
+
+    padding:40px;
 }
 
-.hero-content{
-max-width:900px;
-animation:fadeIn 1.5s ease;
+.hero img{
+    max-width:320px;
+    margin-bottom:20px;
+    filter:drop-shadow(0 10px 25px rgba(0,0,0,.35));
 }
 
 .hero h1{
-font-size:72px;
-margin-bottom:20px;
-color:#c8a165;
+    font-size:52px;
+    margin-bottom:15px;
 }
 
 .hero p{
-font-size:20px;
-color:#ddd;
-margin-bottom:35px;
+    max-width:800px;
+    line-height:1.8;
+    margin-bottom:12px;
 }
 
+/* BUTTON */
+
 .btn{
-display:inline-block;
-padding:14px 35px;
-background:#c8a165;
-color:#fff;
-text-decoration:none;
-border-radius:40px;
-font-weight:600;
-transition:.3s;
+    display:inline-block;
+    margin:10px;
+    padding:14px 28px;
+    text-decoration:none;
+
+    background:linear-gradient(
+        135deg,
+        #caa56a,
+        #e6c187
+    );
+
+    color:white;
+
+    border-radius:40px;
+    font-weight:bold;
+
+    transition:.3s;
 }
 
 .btn:hover{
-transform:translateY(-4px);
-box-shadow:0 10px 25px rgba(200,161,101,.4);
+    transform:translateY(-4px);
+
+    box-shadow:
+    0 10px 25px rgba(202,165,106,.45);
 }
 
-.section-title{
-text-align:center;
-font-size:42px;
-margin:80px 0 40px;
-color:#c8a165;
+/* KATALOG */
+
+.catalog{
+    padding:70px 40px;
+
+    background:rgba(255,255,255,.85);
+
+    backdrop-filter:blur(10px);
 }
 
-.products{
-padding:0 8% 80px;
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(350px,1fr));
-gap:35px;
+.catalog h2{
+    text-align:center;
+    margin-bottom:40px;
+    font-size:36px;
 }
+
+/* GRID */
+
+.grid{
+    display:grid;
+    grid-template-columns:
+    repeat(auto-fit,minmax(320px,1fr));
+
+    gap:30px;
+}
+
+/* CARD */
 
 .card{
-background:#1a1a1a;
-border-radius:20px;
-overflow:hidden;
-transition:.4s;
-border:1px solid #252525;
+    background:white;
+
+    border-radius:20px;
+    overflow:hidden;
+
+    text-decoration:none;
+    color:black;
+
+    border:1px solid rgba(255,255,255,.8);
+
+    box-shadow:
+    0 10px 25px rgba(0,0,0,.12);
+
+    transition:.35s;
 }
 
 .card:hover{
-transform:translateY(-10px);
-box-shadow:0 25px 50px rgba(200,161,101,.15);
+    transform:
+    translateY(-10px);
+
+    box-shadow:
+    0 20px 40px rgba(0,0,0,.20);
 }
 
-.main-image{
-width:100%;
-height:280px;
-object-fit:cover;
+.card img{
+    width:100%;
+    height:280px;
+
+    object-fit:cover;
+
+    transition:.5s;
 }
 
-.card-content{
-padding:25px;
+.card:hover img{
+    transform:scale(1.05);
+}
+
+.card div{
+    padding:18px;
 }
 
 .card h3{
-font-size:24px;
-margin-bottom:10px;
+    margin-bottom:8px;
 }
 
-.price{
-font-size:28px;
-font-weight:700;
-color:#c8a165;
-margin-bottom:20px;
+.card p{
+    color:#b8860b;
+    font-weight:bold;
+    font-size:18px;
 }
 
-.gallery{
-display:grid;
-grid-template-columns:repeat(3,1fr);
-gap:10px;
-}
-
-.gallery img{
-width:100%;
-height:100px;
-object-fit:cover;
-border-radius:10px;
-cursor:pointer;
-transition:.3s;
-}
-
-.gallery img:hover{
-transform:scale(1.05);
-}
-
-.about{
-padding:80px 10%;
-text-align:center;
-background:#151515;
-}
-
-.about p{
-max-width:900px;
-margin:auto;
-line-height:1.9;
-color:#ccc;
-}
+/* FOOTER */
 
 footer{
-background:#090909;
-padding:50px 20px;
-text-align:center;
+    text-align:center;
+
+    padding:40px;
+
+    background:#111;
+    color:white;
+
+    line-height:1.8;
 }
 
-footer h3{
-color:#c8a165;
-margin-bottom:10px;
-}
-
-footer p{
-color:#aaa;
-margin:5px 0;
-}
-
-.whatsapp{
-position:fixed;
-bottom:25px;
-right:25px;
-width:65px;
-height:65px;
-border-radius:50%;
-background:#25D366;
-display:flex;
-justify-content:center;
-align-items:center;
-text-decoration:none;
-font-size:30px;
-color:white;
-box-shadow:0 10px 30px rgba(0,0,0,.4);
-}
-
-.lightbox{
-display:none;
-position:fixed;
-top:0;
-left:0;
-width:100%;
-height:100%;
-background:rgba(0,0,0,.95);
-justify-content:center;
-align-items:center;
-z-index:9999;
-}
-
-.lightbox img{
-max-width:90%;
-max-height:90%;
-}
-
-@keyframes fadeIn{
-from{
-opacity:0;
-transform:translateY(40px);
-}
-to{
-opacity:1;
-transform:translateY(0);
-}
-}
+/* RESPONSIVE */
 
 @media(max-width:768px){
 
 .hero h1{
-font-size:48px;
+    font-size:36px;
 }
 
-.hero p{
-font-size:16px;
-}
-
-.section-title{
-font-size:32px;
+.catalog{
+    padding:50px 20px;
 }
 
 }
 
 </style>
+
 </head>
 
 <body>
 
-<header>
-
-<div class="logo">SANORA</div>
-
-<nav>
-<a href="#produk">Produk</a>
-<a href="#tentang">Tentang</a>
-<a href="#kontak">Kontak</a>
-</nav>
-
-</header>
-
 <section class="hero">
 
-<div class="hero-content">
+<img src="images/SANORA Furniture Minimal Logo.png" alt="SANORA Logo">
 
 <h1>SANORA Furniture</h1>
 
 <p>
-Premium Furniture untuk hunian modern, minimalis,
-dan elegan.
+Crafting Comfort, Creating Home
 </p>
 
-<a href="#produk" class="btn">
+<p>
+SANORA Furniture adalah produsen furniture premium yang menghadirkan sofa modern,
+minimalis, dan custom dengan material berkualitas tinggi.
+</p>
+
+<div>
+
+<a class="btn" href="#katalog">
 Lihat Katalog
 </a>
 
-</div>
-
-</section>
-
-<h2 class="section-title" id="produk">
-Katalog Sofa Premium
-</h2>
-
-<section class="products">
-
-<!-- Sofa Plus -->
-
-<div class="card">
-
-<img src="images/7.png" class="main-image">
-
-<div class="card-content">
-
-<h3>Sofa PLUS</h3>
-
-<div class="price">
-Rp10.600.000
-</div>
-
-<div class="gallery">
-
-<img src="images/10.png" onclick="openImage(this.src)">
-<img src="images/8.png" onclick="openImage(this.src)">
-<img src="images/11.png" onclick="openImage(this.src)">
-
-</div>
-
-</div>
-
-</div>
-
-<!-- Sofa 71 -->
-
-<div class="card">
-
-<img src="images/1.png" class="main-image">
-
-<div class="card-content">
-
-<h3>71 Three-Person Sofa 2 PD</h3>
-
-<div class="price">
-Rp11.500.000
-</div>
-
-<div class="gallery">
-
-<img src="images/4.png" onclick="openImage(this.src)">
-<img src="images/3.png" onclick="openImage(this.src)">
-<img src="images/6.png" onclick="openImage(this.src)">
-
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-<section class="about" id="tentang">
-
-<h2 class="section-title">
-Tentang SANORA
-</h2>
-
-<p>
-SANORA Furniture menghadirkan sofa premium dengan desain
-minimalis modern yang mengutamakan kenyamanan, estetika,
-dan kualitas material terbaik untuk hunian masa kini.
-Melayani pemesanan untuk seluruh Indonesia dari Bulukumba,
-Sulawesi Selatan.
-</p>
-
-</section>
-
-<footer id="kontak">
-
-<h3>SANORA Furniture</h3>
-
-<p>Bulukumba, Sulawesi Selatan, Indonesia</p>
-
-<p>WhatsApp: +62xxxxxxxxxx</p>
-
-<p>Instagram: @sanorafurniture</p>
-
-<p>Email: info@sanorafurniture.com</p>
-
-</footer>
-
-<a
-class="whatsapp"
-href="https://wa.me/62xxxxxxxxxx"
+<a class="btn"
+href="https://wa.me/6282346350129"
 target="_blank">
-☎
+WhatsApp
 </a>
 
-<div class="lightbox" id="lightbox">
-<img id="lightbox-img">
+<a class="btn"
+href="https://www.instagram.com/sanora_furniture"
+target="_blank">
+Instagram
+</a>
+
 </div>
 
-<script>
+</section>
 
-const lightbox =
-document.getElementById('lightbox');
+<section id="katalog" class="catalog">
 
-const lightboxImg =
-document.getElementById('lightbox-img');
+<h2>Katalog Produk</h2>
 
-function openImage(src){
-lightbox.style.display='flex';
-lightboxImg.src=src;
-}
+<div class="grid">
 
-lightbox.onclick=function(){
-lightbox.style.display='none';
-}
+<a class="card" href="sofa-plus.html">
 
-</script>
+<img src="images/7.png" alt="Sofa PLUS">
+
+<div>
+<h3>Sofa PLUS</h3>
+<p>Rp10.600.000</p>
+</div>
+
+</a>
+
+<a class="card" href="sofa71.html">
+
+<img src="images/1.png" alt="71 Three-Person Sofa 2 PD">
+
+<div>
+<h3>71 Three-Person Sofa 2 PD</h3>
+<p>Rp11.500.000</p>
+</div>
+
+</a>
+
+</div>
+
+</section>
+
+<footer>
+
+Bulukumba, Sulawesi Selatan, Indonesia
+<br>
+
+WhatsApp: 082346350129
+<br>
+
+Instagram: @sanora_furniture
+
+</footer>
 
 </body>
 </html>
